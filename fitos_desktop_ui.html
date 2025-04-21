@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FitOS UI Interactiva</title>
+  <style>
+    body {
+      background-image: url('fitness_background.jpg');
+      background-size: cover;
+      background-position: center;
+      font-family: Arial, sans-serif;
+      margin: 0;
+    }
+
+    .top-bar {
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 10;
+    }
+
+    .quote {
+      font-style: italic;
+      color: #333;
+    }
+
+    .desktop {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      padding: 120px 40px;
+    }
+
+    .desktop button {
+      padding: 20px;
+      font-size: 18px;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      background-color: rgba(255, 255, 255, 0.9);
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .desktop button:hover {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 20;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.4);
+    }
+
+    .modal-content {
+      background-color: white;
+      margin: 10% auto;
+      padding: 20px;
+      width: 90%;
+      max-width: 500px;
+      border-radius: 10px;
+      position: relative;
+    }
+
+    .modal-header {
+      font-weight: bold;
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .close-btn {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    input, select, button {
+      margin-top: 10px;
+      width: 100%;
+      padding: 10px;
+      font-size: 14px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    label {
+      display: block;
+      margin: 8px 0 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-bar">
+    <div class="clock" id="clock">00:00</div>
+    <div class="quote">🌿 "Every step counts toward your goal."</div>
+  </div>
+
+  <div class="desktop">
+    <button onclick="openModal('Workout')">Workout Plan</button>
+    <button onclick="openModal('Meditation')">Meditation</button>
+    <button onclick="openModal('Hydration')">Hydration</button>
+    <button onclick="openModal('Nutrition')">Nutrition</button>
+    <button onclick="openModal('Advanced')">Advanced Mode</button>
+    <button onclick="openModal('Challenge')">Daily Challenge</button>
+  </div>
+
+  <div id="modal" class="modal">
+    <div class="modal-content" id="modal-content"></div>
+  </div>
+
+  <script>
+    function updateClock() {
+      const now = new Date();
+      let h = now.getHours();
+      let m = now.getMinutes();
+      let s = now.getSeconds();
+      const ampm = h >= 12 ? 'PM' : 'AM';
+      h = h % 12 || 12;
+      document.getElementById("clock").textContent =
+        `${h}:${m.toString().padStart(2, "0")}:${s.toString().padStart(2, "0")} ${ampm}`;
+    }
+    setInterval(updateClock, 1000); updateClock();
+
+    function openModal(type) {
+      const modal = document.getElementById("modal");
+      const content = document.getElementById("modal-content");
+      let html = `<div class="modal-header">${type}</div>`;
+
+      switch(type) {
+        case 'Workout':
+          html += `
+            <label><input type="checkbox" class="exercise"> Push-ups</label>
+            <label><input type="checkbox" class="exercise"> Squats</label>
+            <label><input type="checkbox" class="exercise"> Cardio 10min</label>
+            <button onclick="checkWorkout()">Listo!</button>
+            <button class="close-btn" onclick="closeModal()">Cerrar</button>`;
+          break;
+
+        case 'Meditation':
+          html += `
+            <p>🧘 Tips para meditar:</p>
+            <ul>
+              <li>Encuentra un lugar tranquilo.</li>
+              <li>Concéntrate en tu respiración.</li>
+              <li>Relaja tus músculos y suelta tensiones.</li>
+              <li>Medita al menos 5 minutos al día.</li>
+            </ul>
+            <button class="close-btn" onclick="closeModal()">Cerrar</button>`;
+          break;
+
+        case 'Hydration':
+          html += `
+            <p>💧 Marca los vasos que has tomado hoy:</p>
+            <div id="water-counter">0 / 8</div>
+            <button onclick="addWater()">+1 Vaso</button>
+            <button class="close-btn" onclick="closeModal()">Cerrar</button>`;
+          break;
+
+        case 'Nutrition':
+          html += `
+            <p>¿Qué comida saludable prefieres hoy?</p>
+            <select id="food-choice">
+              <option>Ensalada de quinoa</option>
+              <option>Pollo con vegetales</option>
+              <option>Wrap de atún</option>
+            </select>
+            <button onclick="confirmFood()">Seleccionar</button>
+            <button class="close-btn" onclick="closeModal()">Cerrar</button>`;
+          break;
+
+        case 'Advanced':
+          html += `
+            <label>Calorías consumidas:</label>
+            <input type="number" placeholder="e.g., 1800" />
+            <label>Proteínas (g):</label>
+            <input type="number" />
+            <label>Carbohidratos (g):</label>
+            <input type="number" />
+            <label>Grasas (g):</label>
+            <input type="number" />
+            <button class="close-btn" onclick="closeModal()">Guardar</button>`;
+          break;
+
+        case 'Challenge':
+          html += `
+            <p>🏆 Reto de hoy: Caminar 10.000 pasos.</p>
+            <button onclick="alert('¡Reto completado! 🎉')">¡Hecho!</button>
+            <button class="close-btn" onclick="closeModal()">Cerrar</button>`;
+          break;
+      }
+
+      content.innerHTML = html;
+      modal.style.display = "block";
+    }
+
+    let waterCount = 0;
+    function addWater() {
+      if (waterCount < 8) {
+        waterCount++;
+        document.getElementById("water-counter").textContent = `${waterCount} / 8`;
+        if (waterCount === 8) {
+          alert("¡Felicidades! 🥳 Has alcanzado tu meta de hidratación diaria.");
+        }
+      }
+    }
+
+    function confirmFood() {
+      const food = document.getElementById("food-choice").value;
+      alert(`¡Buena elección! 🍽️ ${food} es una gran opción.`);
+      closeModal();
+    }
+
+    function checkWorkout() {
+      const checkboxes = document.querySelectorAll('.exercise');
+      const completed = [...checkboxes].filter(cb => cb.checked).length;
+      if (completed === checkboxes.length) {
+        alert("¡Excelente trabajo! 💪 Has completado tu rutina.");
+      } else {
+        alert("Aún te falta completar algunos ejercicios. ¡Tú puedes!");
+      }
+    }
+
+    function closeModal() {
+      document.getElementById("modal").style.display = "none";
+      waterCount = 0;
+    }
+  </script>
+
+</body>
+</html>
+
