@@ -26,14 +26,14 @@
    ```bash
    git clone [https://github.com/your_username/fitos_desktop.git](https://github.com/your_username/fitos_desktop.git)
    cd fitos_desktop
+   
 Grant execution permissions to the script:
-
-Bash
 chmod +x shell_interactiva.sh
-Run the interactive shell:
 
-Bash
+Run the interactive shell:
 ./shell_interactiva.sh
+
+
 Available commands within the shell:
 
 install → Creates sample HTML files.
@@ -50,7 +50,7 @@ time → Shows the current date and time.
 
 exit → Exit the shell.
 
-⚡ Requirements
+## ⚡ Requirements
 Linux or MacOS (easily adaptable to Windows WSL)
 
 Firefox browser (or modify the script for another browser)
@@ -59,7 +59,7 @@ lynx installed for text-based navigation:
 
 Bash
 sudo apt install lynx  # On Debian/Ubuntu
-🎯 Project Goal
+## 🎯 Project Goal
 This project is primarily educational and recreational:
 
 Practice Bash scripting.
@@ -68,5 +68,5 @@ Simulate lightweight desktop environments.
 
 Have fun creating small motivational apps.
 
-📜 License
+## 📜 License
 This project is licensed under the MIT license.
