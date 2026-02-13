@@ -1,80 +1,72 @@
 # FitOS Desktop UI 🚀
 
-**FitOS** es un proyecto divertido que crea un falso escritorio fitness en HTML, diseñado para motivarte a mantener hábitos saludables. ¡Y lo mejor! Puede ser lanzado directamente desde una **shell interactiva** personalizada en Bash.
+**FitOS** is a fun project that creates a mock fitness desktop in HTML, designed to motivate you to maintain healthy habits. Best of all, it can be launched directly from a custom **interactive Bash shell**.
 
-## 📁 Contenido del Proyecto
+## 📁 Project Content
 
-- `fitos_desktop_ui.html`: Una interfaz de escritorio simulada, con accesos a:
-  - Planes de entrenamiento
-  - Meditación
-  - Hidratación diaria
-  - Nutrición
-  - Modo avanzado (contabilidad de macros)
-  - Retos diarios
-- `shell_interactiva.sh`: Un script Bash que permite:
-  - Lanzar la interfaz FitOS en el navegador (`launch`)
-  - Instalar páginas auxiliares (`install`)
-  - Desinstalar recursos (`uninstall`)
-  - Ver fecha y hora actual (`time`)
-  - Mostrar arte ASCII fitness (`fitness`)
-  - Ver páginas de bienestar en modo texto (`salud`)
-  - Ejecutar comandos en modo interactivo
+- `fitos_desktop_ui.html`: A simulated desktop interface with access to:
+  - Workout plans
+  - Meditation
+  - Daily hydration
+  - Nutrition
+  - Advanced mode (macro tracking)
+  - Daily challenges
+- `shell_interactiva.sh`: A Bash script that allows you to:
+  - Launch the FitOS interface in your browser (`launch`)
+  - Install auxiliary pages (`install`)
+  - Uninstall resources (`uninstall`)
+  - View current date and time (`time`)
+  - Display fitness ASCII art (`fitness`)
+  - View wellness pages in text mode (`salud`)
+  - Run commands in interactive mode
 
-## 🚀 Instalación y uso
+## 🚀 Installation and Usage
 
-1. **Clona este repositorio**:
+1. **Clone this repository**:
+   ```bash
+   git clone [https://github.com/your_username/fitos_desktop.git](https://github.com/your_username/fitos_desktop.git)
+   cd fitos_desktop
+Grant execution permissions to the script:
 
-```bash
-git clone https://github.com/tu_usuario/fitos_desktop.git
-cd fitos_desktop
-```
-
-2. **Dale permisos de ejecución al script**:
-
-```bash
+Bash
 chmod +x shell_interactiva.sh
-```
+Run the interactive shell:
 
-3. **Ejecuta la shell interactiva**:
-
-```bash
+Bash
 ./shell_interactiva.sh
-```
+Available commands within the shell:
 
-4. **Comandos disponibles dentro de la shell**:
+install → Creates sample HTML files.
 
-- `install` → Crea archivos HTML de prueba.
-- `uninstall` → Borra archivos instalados.
-- `launch` → Abre el escritorio FitOS en tu navegador (por defecto Firefox).
-- `fitness` → Muestra arte ASCII motivacional.
-- `salud` → Abre una guía de bienestar en modo texto (usa `lynx`).
-- `time` → Muestra fecha y hora actual.
-- `exit` → Salir de la shell.
+uninstall → Deletes installed files.
 
----
+launch → Opens the FitOS desktop in your browser (default: Firefox).
 
-## ⚡ Requisitos
+fitness → Displays motivational ASCII art.
 
-- Linux o MacOS (puede adaptarse fácilmente a Windows WSL)
-- Navegador Firefox (o adaptar el script para otro)
-- `lynx` instalado para navegación en texto:
+salud → Opens a wellness guide in text mode (requires lynx).
 
-```bash
-sudo apt install lynx  # En Debian/Ubuntu
-```
+time → Shows the current date and time.
 
----
+exit → Exit the shell.
 
-## 🎯 Objetivo del proyecto
+⚡ Requirements
+Linux or MacOS (easily adaptable to Windows WSL)
 
-Este proyecto es principalmente educativo y recreativo:
-- Practicar scripting en Bash.
-- Simular entornos de escritorio ligeros.
-- Divertirse creando pequeñas apps motivacionales.
+Firefox browser (or modify the script for another browser)
 
----
+lynx installed for text-based navigation:
 
-## 📜 Licencia
+Bash
+sudo apt install lynx  # On Debian/Ubuntu
+🎯 Project Goal
+This project is primarily educational and recreational:
 
-Este proyecto está bajo la licencia [MIT](LICENSE).
+Practice Bash scripting.
 
+Simulate lightweight desktop environments.
+
+Have fun creating small motivational apps.
+
+📜 License
+This project is licensed under the MIT license.
