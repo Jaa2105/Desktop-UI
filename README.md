@@ -37,35 +37,35 @@ Run the interactive shell:
 
 Available commands within the shell:
 
--install → Creates sample HTML files.
+- install → Creates sample HTML files.
 
--uninstall → Deletes installed files.
+- uninstall → Deletes installed files.
 
--launch → Opens the FitOS desktop in your browser (default: Firefox).
+- launch → Opens the FitOS desktop in your browser (default: Firefox).
 
--fitness → Displays motivational ASCII art.
+- fitness → Displays motivational ASCII art.
 
--salud → Opens a wellness guide in text mode (requires lynx).
+- salud → Opens a wellness guide in text mode (requires lynx).
 
--time → Shows the current date and time.
+- time → Shows the current date and time.
 
--exit → Exit the shell.
+- exit → Exit the shell.
 
 ## ⚡ Requirements
--Linux or MacOS (easily adaptable to Windows WSL)
+- Linux or MacOS (easily adaptable to Windows WSL)
 
--Firefox browser (or modify the script for another browser)
+- Firefox browser (or modify the script for another browser)
 
--lynx installed for text-based navigation:
+- lynx installed for text-based navigation:
 sudo apt install lynx  # On Debian/Ubuntu
 ## 🎯 Project Goal
--This project is primarily educational and recreational:
+- This project is primarily educational and recreational:
 
--Practice Bash scripting.
+- Practice Bash scripting.
 
--Simulate lightweight desktop environments.
+- Simulate lightweight desktop environments.
 
--Have fun creating small motivational apps.
+- Have fun creating small motivational apps.
 
 ## 📜 License
 This project is licensed under the MIT license.
